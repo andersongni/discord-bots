@@ -1,6 +1,7 @@
 import discord
 # from discord import Client
 import re
+import os
 
 # Create an Intents object
 intents = discord.Intents.default()
@@ -32,7 +33,7 @@ async def on_message(message):
     print ("Received message on channel: " + str(message.channel.id))
     print ("Author: " + str(message.author))
     print ("Content: \n" + message.content)
-    print(dir(message))
+    # print(dir(message))
 
     # Check if the message starts with a specific command
     if message.content.startswith('!mplay'):
@@ -52,4 +53,5 @@ async def on_message(message):
         
 
 # Run the bot with the bot token
-client.run('MTA5Njg3NjQxMTMxMjE1NjgyNQ.GuPgf8.tmt92rhULm3etfUCPIckzuXO9miJcg5sPFpfNE')
+discord_token = os.environ['GOUVEAS_BOT_TOKEN']
+client.run(discord_token)
